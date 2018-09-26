@@ -5,9 +5,11 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.annotation.RequiresApi
-import android.util.Log
 import com.picker.gallery.GalleryPicker
+import kotlinx.android.synthetic.main.activity_main.*
+import android.graphics.BitmapFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,39 +19,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if(isReadWritePermitted()) {
-            Log.e("HERE", "HERE")
-            getGalleryResults()
-        } else {
-            Log.e("HERE1", "HERE1")
-            checkReadWritePermission()
-        }
+        if (isReadWritePermitted()) getGalleryResults() else checkReadWritePermission()
     }
 
-    fun getGalleryResults(){
+    fun getGalleryResults() {
         val images = GalleryPicker(this).getImages()
-        Log.e("IMAGES", images.size.toString())
         val videos = GalleryPicker(this).getVideos()
-        Log.e("VIDEOS", videos.size.toString())
+        text.text = "IMAGES COUNT: ${images[0].MINI_THUMB_MAGIC}\nVIDEOS COUNT: ${videos[0].MINI_THUMB_MAGIC}"
+
+        val bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, images[0].ID?.toLong()!!, MediaStore.Images.Thumbnails.MINI_KIND, null as BitmapFactory.Options?)
+        iv.setImageBitmap(bitmap)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkReadWritePermission(): Boolean {
-        Log.e("HERE2", "HERE2")
         requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSIONS_READ_WRITE)
         return true
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        Log.e("HERE3", "HERE3")
         when (requestCode) {
-            PERMISSIONS_READ_WRITE -> {
-                Log.e("HERE4", "HERE4")
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Log.e("HERE5", "HERE5")
-                    getGalleryResults()
-                }
-            }
+            PERMISSIONS_READ_WRITE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) getGalleryResults()
         }
     }
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?separatorColor"
+    android:clickable="true"
+    android:focusable="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="?toolbarColor"
+            android:elevation="4dp">
+
+            <FrameLayout
+                android:id="@+id/backFrame"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:foregroundGravity="center"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/albumselection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/backFrame"
+                android:text="All Photos"
+                android:textColor="?textColor"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:id="@+id/dropdownframe"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/albumselection">
+
+                <ImageView
+                    android:id="@+id/dropdown"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_dropdown" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingEnd="15dp"
+                android:paddingStart="15dp"
+                android:text="DONE"
+                android:textColor="?colorPrimary"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <Fas
+        android:id="@+id/imageGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:overScrollMode="never"
+        app:fastScrollPopupBackgroundSize="@dimen/_30sdp"
+        app:fastScrollPopupBgColor="?colorPrimary"
+        app:fastScrollPopupTextColor="?tintOnFilledButton"
+        app:fastScrollPopupTextSize="@dimen/_12sdp"
+        app:fastScrollThumbColor="?colorPrimary" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/albumsrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar" />
+
+</RelativeLayout>
