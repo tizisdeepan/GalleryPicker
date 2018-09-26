@@ -1,15 +1,15 @@
 package com.picker.gallerysample
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.support.annotation.RequiresApi
 import com.picker.gallery.GalleryPicker
 import kotlinx.android.synthetic.main.activity_main.*
-import android.graphics.BitmapFactory
+import com.picker.gallery.view.PickerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,15 +20,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (isReadWritePermitted()) getGalleryResults() else checkReadWritePermission()
+        startActivity(Intent(this@MainActivity, PickerActivity::class.java))
     }
 
     fun getGalleryResults() {
         val images = GalleryPicker(this).getImages()
         val videos = GalleryPicker(this).getVideos()
-        text.text = "IMAGES COUNT: ${images[0].MINI_THUMB_MAGIC}\nVIDEOS COUNT: ${videos[0].MINI_THUMB_MAGIC}"
-
-        val bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, images[0].ID?.toLong()!!, MediaStore.Images.Thumbnails.MINI_KIND, null as BitmapFactory.Options?)
-        iv.setImageBitmap(bitmap)
+        text.text = "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}"
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
