@@ -5,7 +5,7 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?separatorColor"
+    android:background="#f7f7f7"
     android:clickable="true"
     android:focusable="true">
 
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:background="?toolbarColor"
+            android:background="#ffffff"
             android:elevation="4dp">
 
             <FrameLayout
@@ -44,7 +44,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toEndOf="@+id/backFrame"
                 android:text="All Photos"
-                android:textColor="?textColor"
+                android:textColor="#000000"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <Fas
+    <com.picker.gallery.utils.scroll.FastScrollRecyclerView
         android:id="@+id/imageGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -88,10 +88,10 @@
         android:layout_marginStart="5dp"
         android:overScrollMode="never"
         app:fastScrollPopupBackgroundSize="@dimen/_30sdp"
-        app:fastScrollPopupBgColor="?colorPrimary"
-        app:fastScrollPopupTextColor="?tintOnFilledButton"
+        app:fastScrollPopupBgColor="#2962ff"
+        app:fastScrollPopupTextColor="#ffffff"
         app:fastScrollPopupTextSize="@dimen/_12sdp"
-        app:fastScrollThumbColor="?colorPrimary" />
+        app:fastScrollThumbColor="#2962ff" />
 
 
     <android.support.v7.widget.RecyclerView
@@ -99,5 +99,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/allowAccessFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/galleryIllusTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Uh oh!"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/galleryIllusContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="You haven’t published any posts yet. Start creating awesome content."
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/allowAccessButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textview_blue_filled_ripple"
+                android:paddingBottom="5dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:text="Allow Access"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>

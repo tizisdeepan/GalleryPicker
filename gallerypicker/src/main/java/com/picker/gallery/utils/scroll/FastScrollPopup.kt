@@ -15,9 +15,9 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.support.annotation.Keep
 import android.text.TextUtils
-import com.picker.gallery.scroll.FastScrollRecyclerView
-import com.picker.gallery.scroll.FastScroller
-import com.picker.gallery.scroll.Utils
+import com.picker.gallery.utils.scroll.FastScrollRecyclerView
+import com.picker.gallery.utils.scroll.FastScroller
+import com.picker.gallery.utils.scroll.Utils
 
 class FastScrollPopup(private val mRes: Resources, private val mRecyclerView: FastScrollRecyclerView) {
 

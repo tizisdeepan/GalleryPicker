@@ -1,4 +1,4 @@
-package com.picker.gallery.scroll
+package com.picker.gallery.utils.scroll
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
