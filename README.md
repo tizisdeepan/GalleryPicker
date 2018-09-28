@@ -35,3 +35,10 @@ NOTE: Make sure to implement run time permissions request in your app.
 ```kotlin
 startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 ```
+
+## [5] If you don't want the Custom Picker Activity, you can use this code to fertch the photos and videos and show them in your own UI
+```kotlin
+val images = GalleryPicker(this).getImages()
+val videos = GalleryPicker(this).getVideos()
+Log.e("RESULT", "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}")
+```
