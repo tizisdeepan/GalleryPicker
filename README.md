@@ -28,6 +28,7 @@ allprojects {
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.CAMERA"/>
 ```
 NOTE: Make sure to implement run time permissions request in your app.
 
