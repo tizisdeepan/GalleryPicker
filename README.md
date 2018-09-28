@@ -38,8 +38,8 @@ startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 
 ## [5] If you don't want to use the PickerActivity, you this to fetch Photos and Videos
 ```kotlin
-val images = GalleryPicker(this).getImages()
-val videos = GalleryPicker(this).getVideos()
+val images = GalleryPicker(context).getImages()
+val videos = GalleryPicker(context).getVideos()
 Log.e("RESULT", "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}")
 ```
 
