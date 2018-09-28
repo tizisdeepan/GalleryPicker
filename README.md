@@ -36,7 +36,7 @@ NOTE: Make sure to implement run time permissions request in your app.
 startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 ```
 
-## [5] You can Picker Limits via your Intent
+## [5] You can define Picker Limits via your Intent
 ```kotlin
 val i = Intent(this@MainActivity, PickerActivity::class.java)
 i.putExtra("IMAGES_LIMIT", 7) // Allows you to pick 7 images (default is 4)
