@@ -1,9 +1,11 @@
-package com.picker.gallery
+package com.picker.gallery.model.interactor
 
 import android.content.Context
 import android.content.pm.PackageManager
 import android.provider.MediaStore
 import android.util.Log
+import com.picker.gallery.model.GalleryImage
+import com.picker.gallery.model.GalleryVideo
 import java.io.File
 import kotlin.collections.ArrayList
 
