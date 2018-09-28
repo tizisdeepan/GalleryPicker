@@ -20,6 +20,7 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.content.FileProvider
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.picker.gallery.R
 import kotlinx.android.synthetic.main.activity_picker.*
 import java.io.File
@@ -31,11 +32,16 @@ import java.util.*
 class PickerActivity : AppCompatActivity() {
 
     private val PERMISSIONS_CAMERA = 124
+    var THRESHOLD = 4
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picker)
+
+        val i = intent
+        THRESHOLD = i.getIntExtra("LIMIT", 4)
+        Log.e("THRESHOLD", THRESHOLD.toString())
 
         setUpViewPager(viewpager)
         tabs.setupWithViewPager(viewpager)

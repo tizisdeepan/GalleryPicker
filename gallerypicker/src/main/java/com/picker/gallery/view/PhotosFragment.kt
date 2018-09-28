@@ -126,7 +126,7 @@ class PhotosFragment : Fragment(), ImagePickerContract {
     override fun initRecyclerViews() {
         albumsrecyclerview.layoutManager = LinearLayoutManager(ctx)
         albumsrecyclerview.adapter = AlbumAdapter(ArrayList(), this)
-        imageGrid.adapter = ImageGridAdapter(imageList = photoList)
+        imageGrid.adapter = ImageGridAdapter(imageList = photoList, threshold = (ctx as PickerActivity).THRESHOLD)
     }
 
     override fun toggleDropdown() {

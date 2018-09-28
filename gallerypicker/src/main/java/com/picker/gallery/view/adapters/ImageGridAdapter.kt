@@ -33,8 +33,9 @@ class ImageGridAdapter() : RecyclerView.Adapter<ImageGridAdapter.MyViewHolder>()
     private var fullimagelist: ArrayList<GalleryData> = ArrayList()
     var THRESHOLD = 4
 
-    constructor(imageList: ArrayList<GalleryData> = ArrayList(), filter: Int = 0) : this() {
+    constructor(imageList: ArrayList<GalleryData> = ArrayList(), filter: Int = 0, threshold: Int = 4) : this() {
         fullimagelist = imageList
+        THRESHOLD = threshold
         if (filter == 0) mimageList = imageList
         else imageList.filter { it.albumId == filter }.forEach { mimageList.add(it) }
     }

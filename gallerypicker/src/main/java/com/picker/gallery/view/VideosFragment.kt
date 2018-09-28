@@ -131,7 +131,7 @@ class VideosFragment : Fragment(), ImagePickerContract {
     override fun initRecyclerViews() {
         albumsrecyclerview.layoutManager = LinearLayoutManager(ctx)
         albumsrecyclerview.adapter = AlbumAdapter(ArrayList(), this)
-        imageGrid.adapter = VideoGridAdapter(imageList = photoList)
+        imageGrid.adapter = VideoGridAdapter(imageList = photoList, threshold = (ctx as PickerActivity).THRESHOLD)
     }
 
     override fun toggleDropdown() {
