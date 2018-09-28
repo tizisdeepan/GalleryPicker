@@ -36,6 +36,13 @@ NOTE: Make sure to implement run time permissions request in your app.
 startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 ```
 
+## [5] You can Picker Limits via your Intent
+```kotlin
+val i = Intent(this@MainActivity, PickerActivity::class.java)
+i.putExtra("LIMIT", 7) // Allows you to pick 7 media
+startActivity(i)
+```
+
 ## [5] If you don't want to use the PickerActivity, you this to fetch Photos and Videos
 ```kotlin
 val images = GalleryPicker(context).getImages()
