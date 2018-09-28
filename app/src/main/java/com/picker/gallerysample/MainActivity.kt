@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (isReadWritePermitted()) getGalleryResults() else checkReadWritePermission()
-        startActivity(Intent(this@MainActivity, PickerActivity::class.java))
+        val i = Intent(this@MainActivity, PickerActivity::class.java)
+        i.putExtra("LIMIT", 7)
+        startActivity(i)
     }
 
     fun getGalleryResults() {
