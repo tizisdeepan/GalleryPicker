@@ -43,7 +43,7 @@ i.putExtra("LIMIT", 7) // Allows you to pick 7 media
 startActivity(i)
 ```
 
-## [5] If you don't want to use the PickerActivity, you this to fetch Photos and Videos
+## [6] If you don't want to use the PickerActivity, you this to fetch Photos and Videos
 ```kotlin
 val images = GalleryPicker(context).getImages()
 val videos = GalleryPicker(context).getVideos()
