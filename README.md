@@ -42,3 +42,30 @@ val images = GalleryPicker(this).getImages()
 val videos = GalleryPicker(this).getVideos()
 Log.e("RESULT", "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}")
 ```
+
+# Documentation
+## GalleryImage Model
+|Property|Description|
+|---|---|
+|ID [String]|**Unique Identifier** for the image|
+|DATA [String]|**Uri** of the image|
+|DATE_ADDED [Long]|**Date (timeInMillis)** of when the image has been **Added**|
+|DATE_MODIFIED [Long]|**Date (timeInMillis)** of when the image has been **Last Modified**|
+|DATE_TAKEN [Long]|**Date (timeInMillis)** of when the image has been **Captured**|
+|DISPLAY_NAME [String]|**Name** of the image|
+|HEIGHT [String]|**Height** of the image in pixels|
+|WIDTH [String]|**Width** of the image in pixels|
+|MIME_TYPE [String]|**Mime Type** of the image|
+|SIZE [String]|**Size** of the image in bytes|
+|TITLE [String]|**Title** of the Image|
+|BUCKET_DISPLAY_NAME [String]|**Bucket Name** of the image in Media Store|
+|BUCKET_ID [String]|**Bucket ID** of the image in Media Store|
+|DESCRIPTION [String]|**Decription** of the image|
+|IS_PRIVATE [String]|Tells whether the image is in **Private Directory** or not|
+|LATITUDE [String]|**Location** coordinates - Latitude|
+|LONGITUDE [String]|**Location** coordinates - Longitude|
+|MINI_THUMB_MAGIC [String]|**Mini Thumb Magic** property from Media Store|
+|ORIENTATION [String]|**Orientation** type - Exif property|
+|PICASA_ID [String]|**Picasa ID** property from Media Store|
+|ALBUM_NAME [String]|**Name of the Album** in which the image is present|
+
