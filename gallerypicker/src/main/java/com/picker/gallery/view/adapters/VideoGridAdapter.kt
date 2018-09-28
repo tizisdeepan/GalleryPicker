@@ -49,8 +49,10 @@ class VideoGridAdapter() : RecyclerView.Adapter<VideoGridAdapter.MyViewHolder>()
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        if (getSelectedCount() >= THRESHOLD) mimageList.filterNot { it.isSelected }.forEach { it.isEnabled = false }
-        else mimageList.forEach { it.isEnabled = true }
+        if (THRESHOLD != 0) {
+            if (getSelectedCount() >= THRESHOLD) mimageList.filterNot { it.isSelected }.forEach { it.isEnabled = false }
+            else mimageList.forEach { it.isEnabled = true }
+        }
 
         doAsync {
             RunOnUiThread(ctx).safely {
@@ -94,34 +96,46 @@ class VideoGridAdapter() : RecyclerView.Adapter<VideoGridAdapter.MyViewHolder>()
         else holder.checkbox.setImageResource(R.drawable.round)
 
         holder.image.setOnClickListener {
-            when {
-                getSelectedCount() <= THRESHOLD -> {
-                    if (mimageList[holder.adapterPosition].isSelected) {
-                        mimageList[holder.adapterPosition].isSelected = false
-                        holder.checkbox.setImageResource(R.drawable.round)
-                        if (getSelectedCount() == (THRESHOLD - 1) && !mimageList[holder.adapterPosition].isSelected) {
-                            mimageList.forEach { it.isEnabled = true }
-                            for ((index, item) in mimageList.withIndex()) {
-                                if (item.isEnabled && !item.isSelected) notifyItemChanged(index)
+            if (THRESHOLD != 0) {
+                when {
+                    getSelectedCount() <= THRESHOLD -> {
+                        if (mimageList[holder.adapterPosition].isSelected) {
+                            mimageList[holder.adapterPosition].isSelected = false
+                            holder.checkbox.setImageResource(R.drawable.round)
+                            if (getSelectedCount() == (THRESHOLD - 1) && !mimageList[holder.adapterPosition].isSelected) {
+                                mimageList.forEach { it.isEnabled = true }
+                                for ((index, item) in mimageList.withIndex()) {
+                                    if (item.isEnabled && !item.isSelected) notifyItemChanged(index)
+                                }
                             }
-                        }
-                    } else {
-                        mimageList[holder.adapterPosition].isSelected = true
-                        holder.checkbox.setImageResource(R.drawable.tick)
-                        if (getSelectedCount() == THRESHOLD && mimageList[holder.adapterPosition].isSelected) {
-                            mimageList.filterNot { it.isSelected }.forEach { it.isEnabled = false }
-                            for ((index, item) in mimageList.withIndex()) {
-                                if (!item.isEnabled) notifyItemChanged(index)
+                        } else {
+                            mimageList[holder.adapterPosition].isSelected = true
+                            holder.checkbox.setImageResource(R.drawable.tick)
+                            if (getSelectedCount() == THRESHOLD && mimageList[holder.adapterPosition].isSelected) {
+                                mimageList.filterNot { it.isSelected }.forEach { it.isEnabled = false }
+                                for ((index, item) in mimageList.withIndex()) {
+                                    if (!item.isEnabled) notifyItemChanged(index)
+                                }
                             }
                         }
                     }
-                }
-                getSelectedCount() > THRESHOLD -> {
-                    for (image in mimageList) {
-                        mimageList.filter { it.isSelected && !it.isEnabled }.forEach { it.isSelected = false }
+                    getSelectedCount() > THRESHOLD -> {
+                        for (image in mimageList) {
+                            mimageList.filter { it.isSelected && !it.isEnabled }.forEach { it.isSelected = false }
+                        }
+                    }
+                    else -> {
                     }
                 }
-                else -> {
+            } else {
+                if (mimageList[holder.adapterPosition].isSelected) {
+                    mimageList[holder.adapterPosition].isSelected = false
+                    holder.checkbox.setImageResource(R.drawable.round)
+                    notifyItemChanged(holder.adapterPosition)
+                } else {
+                    mimageList[holder.adapterPosition].isSelected = true
+                    holder.checkbox.setImageResource(R.drawable.tick)
+                    notifyItemChanged(holder.adapterPosition)
                 }
             }
         }

@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (isReadWritePermitted()) getGalleryResults() else checkReadWritePermission()
         val i = Intent(this@MainActivity, PickerActivity::class.java)
-        i.putExtra("LIMIT", 7)
+//        i.putExtra("IMAGES_LIMIT", 7)
+//        i.putExtra("VIDEOS_LIMIT", 7)
         startActivity(i)
     }
 
