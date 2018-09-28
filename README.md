@@ -30,3 +30,8 @@ allprojects {
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
 NOTE: Make sure to implement run time permissions request in your app.
+
+## [4] In your project, you can start PickerActivity by adding this line
+```kotlin
+startActivity(Intent(this@MainActivity, PickerActivity::class.java))
+```
