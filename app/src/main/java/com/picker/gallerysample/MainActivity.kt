@@ -7,7 +7,7 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.annotation.RequiresApi
-import com.picker.gallery.GalleryPicker
+import com.picker.gallery.model.interactor.GalleryPicker
 import kotlinx.android.synthetic.main.activity_main.*
 import com.picker.gallery.view.PickerActivity
 
