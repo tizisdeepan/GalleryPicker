@@ -69,3 +69,34 @@ Log.e("RESULT", "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}")
 |PICASA_ID [String]|**Picasa ID** property from Media Store|
 |ALBUM_NAME [String]|**Name of the Album** in which the image is present|
 
+## GalleryVideo Model
+|Property|Description|
+|---|---|
+|ID [String]|**Unique Identifier** for the video|
+|DATA [String]|**Uri** of the video|
+|DATE_ADDED [Long]|**Date (timeInMillis)** of when the video has been **Added**|
+|DATE_MODIFIED [Long]|**Date (timeInMillis)** of when the video has been **Last Modified**|
+|DATE_TAKEN [Long]|**Date (timeInMillis)** of when the video has been **Captured**|
+|DISPLAY_NAME [String]|**Name** of the video|
+|HEIGHT [String]|**Height** of the video in pixels|
+|WIDTH [String]|**Width** of the video in pixels|
+|MIME_TYPE [String]|**Mime Type** of the video|
+|SIZE [String]|**Size** of the video in bytes|
+|TITLE [String]|**Title** of the video|
+|ALBUM [String]|**Album Name** of the video in Media Store|
+|ARTIST [String]|**Artist Name** of the video in Media Store|
+|BOOKMARK [String]|**Bookmark** of the video in Media Store|
+|BUCKET_DISPLAY_NAME [String]|**Bucket Name** of the video in Media Store|
+|BUCKET_ID [String]|**Bucket ID** of the video in Media Store|
+|CATEGORY [String]|**Category** of the video|
+|DESCRIPTION [String]|**Description** of the video|
+|DURATION [String]|**Duration** of the video in milli seconds|
+|IS_PRIVATE [String]|Tells whether the video is in **Private Directory** or not|
+|LANGUAGE [String]|**Language** of the video|
+|LATITUDE [String]|**Location** coordinates - Latitude|
+|LONGITUDE [String]|**Location** coordinates - Longitude|
+|MINI_THUMB_MAGIC [String]|**Mini Thumb Magic** property from Media Store|
+|RESOLUTION [String]|**Resolution** of the video|
+|TAGS [String]|**Tags** property from Media Store|
+|ALBUM_NAME [String]|**Name of the Album** in which the video is present|
+
