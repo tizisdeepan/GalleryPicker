@@ -3,6 +3,7 @@ package com.picker.gallery.view
 import android.Manifest
 import android.annotation.TargetApi
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -105,8 +106,10 @@ class VideosFragment : Fragment(), ImagePickerContract {
                         done.setOnClickListener {
                             val newList: ArrayList<GalleryData> = ArrayList()
                             photoList.filterTo(newList) { it.isSelected && it.isEnabled }
-//                            (ctx as ComposeActivity).getImagesFromPicker(newList)
-                            activity?.onBackPressed()
+                            val i = Intent()
+                            i.putParcelableArrayListExtra("MEDIA", newList)
+                            (ctx as PickerActivity).setResult((ctx as PickerActivity).REQUEST_RESULT_CODE, i)
+                            (ctx as PickerActivity).onBackPressed()
                         }
                         albumselection.setOnClickListener {
                             toggleDropdown()

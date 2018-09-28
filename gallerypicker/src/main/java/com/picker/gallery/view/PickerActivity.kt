@@ -33,6 +33,7 @@ class PickerActivity : AppCompatActivity() {
     private val PERMISSIONS_CAMERA = 124
     var IMAGES_THRESHOLD = 0
     var VIDEOS_THRESHOLD = 0
+    var REQUEST_RESULT_CODE = 101
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,7 @@ class PickerActivity : AppCompatActivity() {
         val i = intent
         IMAGES_THRESHOLD = i.getIntExtra("IMAGES_LIMIT", 0)
         VIDEOS_THRESHOLD = i.getIntExtra("VIDEOS_LIMIT", 0)
+        REQUEST_RESULT_CODE = i.getIntExtra("REQUEST_RESULT_CODE", 0)
 
         setUpViewPager(viewpager)
         tabs.setupWithViewPager(viewpager)
