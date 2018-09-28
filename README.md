@@ -39,7 +39,8 @@ startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 ## [5] You can Picker Limits via your Intent
 ```kotlin
 val i = Intent(this@MainActivity, PickerActivity::class.java)
-i.putExtra("LIMIT", 7) // Allows you to pick 7 media
+i.putExtra("IMAGES_LIMIT", 7) // Allows you to pick 7 images (default is 4)
+i.putExtra("VIDEOS_LIMIT", 7) // Allows you to pick 7 videos (default is 4)
 startActivity(i)
 ```
 
