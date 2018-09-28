@@ -4,6 +4,8 @@
 ## What is Gallery Picker?
 Gallery Picker allows you to design a custom gallery for image/ video picker in your android projects. You can also use the in-built cutom fragment developed with the help of the utility methods provided in the library. The utility methods include fetching data from the android's media store efficiently and album separations.
 
+![Screenshot 2](https://github.com/tizisdeepan/gallerypicker/blob/master/Screenshots/ss.png)
+
 ## Implementation
 ### [1] In your app module gradle file
 ```gradle
