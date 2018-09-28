@@ -11,7 +11,7 @@ Gallery Picker allows you to design a custom gallery for image/ video picker in 
 ### [1] In your app module gradle file
 ```gradle
 dependencies {
-    implementation 'com.github.tizisdeepan:gallerypicker:1.0.0'
+    implementation 'com.github.tizisdeepan:gallerypicker:1.0.1'
 }
 ```
 
