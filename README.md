@@ -36,7 +36,7 @@ NOTE: Make sure to implement run time permissions request in your app.
 startActivity(Intent(this@MainActivity, PickerActivity::class.java))
 ```
 
-## [5] If you don't want to use the Picker Activity, you this to fetch Photos and Videos to use them as you wish
+## [5] If you don't want to use the PickerActivity, you this to fetch Photos and Videos
 ```kotlin
 val images = GalleryPicker(this).getImages()
 val videos = GalleryPicker(this).getVideos()
