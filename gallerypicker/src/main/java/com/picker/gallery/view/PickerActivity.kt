@@ -2,6 +2,7 @@ package com.picker.gallery.view
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -25,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_picker.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -90,7 +92,7 @@ class PickerActivity : AppCompatActivity() {
             } catch (ex: IOException) {
             }
             if (photoFile != null) {
-                val photoURI = FileProvider.getUriForFile(this, "com.zoho.zohosocial.fileprovider", photoFile)
+                val photoURI = FileProvider.getUriForFile(this, "com.picker.gallery.fileprovider", photoFile)
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO)
             }
@@ -106,6 +108,11 @@ class PickerActivity : AppCompatActivity() {
         val image = File.createTempFile(imageFileName, ".jpg", storageDir)
         mCurrentPhotoPath = image.absolutePath
         return image
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) galleryAddPic()
     }
 
     private var mCurrentPhotoPath: String = ""
@@ -131,7 +138,12 @@ class PickerActivity : AppCompatActivity() {
         rotatedBitmap?.compress(Bitmap.CompressFormat.JPEG, 70, out)
         out.close()
         ContentUris.parseId(Uri.parse(MediaStore.Images.Media.insertImage(contentResolver, file.absolutePath, file.name, file.name)))
-        //restart
+        try {
+            viewpager.currentItem = 0
+            ((viewpager.adapter as ViewPagerAdapter).mFragmentList[0] as? PhotosFragment)?.initViews()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun rotateImage(source: Bitmap, angle: Float): Bitmap {
@@ -172,8 +184,8 @@ class PickerActivity : AppCompatActivity() {
     }
 
     internal inner class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
-        private val mFragmentList: ArrayList<android.support.v4.app.Fragment> = ArrayList()
-        private val mFragmentTitleList: ArrayList<String> = ArrayList()
+        val mFragmentList: ArrayList<android.support.v4.app.Fragment> = ArrayList()
+        val mFragmentTitleList: ArrayList<String> = ArrayList()
 
         override fun getItem(position: Int): android.support.v4.app.Fragment = mFragmentList[position]
 

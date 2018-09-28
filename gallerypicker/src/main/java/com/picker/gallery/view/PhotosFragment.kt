@@ -40,7 +40,6 @@ class PhotosFragment : Fragment(), ImagePickerContract {
     val imagePickerPresenter: PhotosPresenterImpl = PhotosPresenterImpl(this)
     lateinit var listener: OnPhoneImagesObtained
     private val PERMISSIONS_READ_WRITE = 123
-//    private val PERMISSIONS_CAMERA = 124
 
     lateinit var ctx: Context
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,9 +51,7 @@ class PhotosFragment : Fragment(), ImagePickerContract {
         super.onViewCreated(view, savedInstanceState)
         allowAccessButton.outlineProvider = ViewOutlineProvider.BACKGROUND
 
-        imageGrid.setPopUpTypeface(FontsManager(ctx).getTypeface(FontsConstants.MULI_SEMIBOLD))
-
-        if (isReadWritePermitted()) initGalleryViews() else allowAccessFrame.visibility = View.VISIBLE
+        initViews()
 
         allowAccessButton.setOnClickListener {
             if (isReadWritePermitted()) initGalleryViews() else checkReadWritePermission()
@@ -63,9 +60,17 @@ class PhotosFragment : Fragment(), ImagePickerContract {
         if (activity != null) HideKeypad().hideKeyboard(activity!!)
         backFrame.setOnClickListener { activity?.onBackPressed() }
 
+        imageGrid.setPopUpTypeface(FontsManager(ctx).getTypeface(FontsConstants.MULI_SEMIBOLD))
         galleryIllusTitle.typeface = FontsManager(ctx).getTypeface(FontsConstants.MULI_SEMIBOLD)
         galleryIllusContent.typeface = FontsManager(ctx).getTypeface(FontsConstants.MULI_REGULAR)
         allowAccessButton.typeface = FontsManager(ctx).getTypeface(FontsConstants.MULI_SEMIBOLD)
+    }
+
+    fun initViews() {
+        photoList.clear()
+        albumList.clear()
+        photoids.clear()
+        if (isReadWritePermitted()) initGalleryViews() else allowAccessFrame.visibility = View.VISIBLE
     }
 
     fun initGalleryViews() {
@@ -179,7 +184,6 @@ class PhotosFragment : Fragment(), ImagePickerContract {
         when (requestCode) {
             PERMISSIONS_READ_WRITE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) initGalleryViews()
             else allowAccessFrame.visibility = View.VISIBLE
-//            PERMISSIONS_CAMERA -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) dispatchTakePictureIntent()
         }
     }
 

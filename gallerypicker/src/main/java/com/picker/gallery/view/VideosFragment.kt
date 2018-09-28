@@ -43,7 +43,6 @@ class VideosFragment : Fragment(), ImagePickerContract {
     lateinit var listener: OnPhoneImagesObtained
 
     private val PERMISSIONS_READ_WRITE = 123
-//    private val PERMISSIONS_CAMERA = 124
 
     lateinit var ctx: Context
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -184,7 +183,6 @@ class VideosFragment : Fragment(), ImagePickerContract {
         when (requestCode) {
             PERMISSIONS_READ_WRITE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) initGalleryViews()
             else allowAccessFrame.visibility = View.VISIBLE
-//            PERMISSIONS_CAMERA -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) dispatchTakePictureIntent()
         }
     }
 
