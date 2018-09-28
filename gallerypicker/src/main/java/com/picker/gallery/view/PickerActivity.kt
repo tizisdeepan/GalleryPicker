@@ -81,7 +81,6 @@ class PickerActivity : AppCompatActivity() {
     }
 
     val REQUEST_TAKE_PHOTO = 1
-
     private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (takePictureIntent.resolveActivity(packageManager) != null) {
