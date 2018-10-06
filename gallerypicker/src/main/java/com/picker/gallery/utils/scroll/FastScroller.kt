@@ -21,7 +21,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import com.picker.gallery.R
-import com.zoho.zohosocial.utils.scroll.FastScrollPopup
 
 class FastScroller(context: Context, private val mRecyclerView: FastScrollRecyclerView?, attrs: AttributeSet) {
     private val mHideRunnable: Runnable
