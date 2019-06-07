@@ -109,3 +109,32 @@ Log.e("RESULT", "IMAGES COUNT: ${images.size}\nVIDEOS COUNT: ${videos.size}")
 |TAGS [String]|**Tags** property from Media Store|
 |ALBUM_NAME [String]|**Name of the Album** in which the video is present|
 
+Developed By
+------------
+
+* Deepan Elango - <tizisdeepan@gmail.com>
+
+<a href="https://twitter.com/tizisdeepan">
+  <img alt="Follow me on Twitter" src="./screenshots/twitter.png" />
+</a>
+<a href="https://www.linkedin.com/in/tizisdeepan/">
+  <img alt="Add me to Linkedin" src="./screenshots/linkedin.png" />
+</a>
+
+License
+-------
+
+    Copyright 2016 Mario Velasco Casquero
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
