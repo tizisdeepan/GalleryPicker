@@ -1,6 +1,7 @@
 # Gallery Picker
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![](https://jitpack.io/v/tizisdeepan/gallerypicker.svg)](https://jitpack.io/#tizisdeepan/gallerypicker)
+[![](https://jitpack.io/v/tizisdeepan/gallerypicker.svg)](https://jitpack.io/#tizisdeepan/gallerypicker)
 
 ## What is Gallery Picker?
 Gallery Picker allows you to design a custom gallery for image/ video picker in your android projects. You can also use the in-built cutom fragment developed with the help of the utility methods provided in the library. The utility methods include fetching data from the android's media store efficiently and album separations.
