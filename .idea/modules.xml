@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GalleryPicker.iml" filepath="$PROJECT_DIR$/.idea/modules/GalleryPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GalleryPicker.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GalleryPicker.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gallerypicker/GalleryPicker.gallerypicker.iml" filepath="$PROJECT_DIR$/.idea/modules/gallerypicker/GalleryPicker.gallerypicker.iml" />
+    </modules>
+  </component>
+</project>
